@@ -1,0 +1,21 @@
+{
+  "nlu_model": "phi3",
+  "generator_model": "qwen2.5-coder",
+  "api_port": 8765,
+  "hotkey": "CommandOrControl+Shift+Space",
+  "auto_execute": false,
+  "rag_threshold": 0.85,
+  "script_timeout": 30,
+  "allowed_commands": [
+    "open",
+    "start",
+    "osascript",
+    "say",
+    "spotify",
+    "curl",
+    "python3",
+    "node",
+    "echo",
+    "caffeinate"
+  ]
+}
