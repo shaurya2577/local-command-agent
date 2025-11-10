@@ -110,6 +110,8 @@ Requirements:
 - Make it executable and reliable
 - Handle errors gracefully
 - No destructive operations (rm, del, format, etc.)
+- Do NOT use sleep or wait commands - keep scripts instant
+- Be accurate with app names (Music.app for Apple Music, Spotify.app for Spotify)
 
 {examples}
 
@@ -144,7 +146,7 @@ Now generate the script:"""
 
     def _is_safe(self, script: str) -> bool:
         """check if script only uses allowed commands"""
-        dangerous = ['rm ', 'del ', 'format', 'chmod', 'sudo', 'dd ', '>/', 'rf ']
+        dangerous = ['rm ', 'del ', 'format', 'chmod', 'sudo', 'dd ', '>/', 'rf ', 'sleep ']
 
         script_lower = script.lower()
 

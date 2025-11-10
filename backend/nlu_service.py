@@ -57,17 +57,35 @@ Output:"""
             # extract json from response
             text = response['response'].strip()
 
-            # try to find json in response
+            # try to find FIRST valid json object only
             start = text.find('{')
-            end = text.rfind('}') + 1
-
-            if start >= 0 and end > start:
-                json_str = text[start:end]
-                intent = json.loads(json_str)
-                return intent
-            else:
-                # fallback
+            if start < 0:
                 return {"action": "unknown", "query": query}
+
+            # find matching closing brace
+            brace_count = 0
+            end = start
+            for i in range(start, len(text)):
+                if text[i] == '{':
+                    brace_count += 1
+                elif text[i] == '}':
+                    brace_count -= 1
+                    if brace_count == 0:
+                        end = i + 1
+                        break
+
+            if end > start:
+                json_str = text[start:end]
+                try:
+                    intent = json.loads(json_str)
+                    # ensure it's a dict
+                    if isinstance(intent, dict):
+                        return intent
+                except json.JSONDecodeError as je:
+                    logger.error(f"json decode error: {je}, text: {json_str}")
+                    return {"action": "unknown", "query": query}
+
+            return {"action": "unknown", "query": query}
 
         except Exception as e:
             logger.error(f"intent parsing failed: {e}")
