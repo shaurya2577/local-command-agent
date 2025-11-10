@@ -23,23 +23,29 @@ yo so basically i got tired of clicking around for everything so i built this th
 - python 3.10+
 - node 20+
 
-## setup
+## quick start
 
 ```bash
-# install ollama models
+# easy way
+./setup.sh
+
+# or manual:
+# 1. install ollama models
 ollama pull phi3
 ollama pull qwen2.5-coder
 
-# backend
+# 2. backend
 cd backend
-pip install -r requirements.txt
-python main.py
+pip3 install -r requirements.txt
+python3 main.py
 
-# frontend
+# 3. frontend (new terminal)
 cd frontend
 npm install
 npm start
 ```
+
+press `cmd+shift+space` to open
 
 ## how it works
 
