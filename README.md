@@ -1,20 +1,19 @@
 # local command agent 🚀
 
-yo so basically i got tired of clicking around for everything so i built this thing. it's like raycast but runs completely local with AI that learns your commands.
+it's like raycast but runs completely local with AI that learns your commands.
 
-## wtf is this
+## how works
 
 - hit `cmd+shift+space` and type what u want in plain english
 - local AI figures out what u mean (no cloud bs)
 - runs scripts or generates new ones if needed
 - remembers everything for next time
 
-## why tho
+## why 
 
 - privacy: everything stays on ur machine
-- fast af: no network calls
 - gets smarter: builds up custom commands over time
-- free: no subscriptions lol
+- free: no more subscriptions
 
 ## requirements
 
@@ -58,11 +57,11 @@ press `cmd+shift+space` to open
 
 ## commands dir
 
-drop ur own scripts in `plugins/` and it'll learn em
+drop ur own scripts in `plugins/` and it'll learn them
 
 ## status
 
-working on it. bugs expected. yolo.
+lots of bugs :(
 
 ## stack
 
@@ -72,7 +71,3 @@ working on it. bugs expected. yolo.
 - rag: chromadb
 - frontend: electron + react (maybe)
 - db: sqlite
-
----
-
-made this cuz i was bored. sue me ¯\_(ツ)_/¯
